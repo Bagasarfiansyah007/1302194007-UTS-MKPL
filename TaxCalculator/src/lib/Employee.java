@@ -21,9 +21,8 @@ public class Employee {
 	}
 	private Gender gender;//true = Laki-laki, false = Perempuan
 
-	private List<String> childNames;
-	private List<String> childIdNumbers;
-	
+	private List<Children> childrens;
+
 	public Employee(
 			String employeeId,
 			String firstName,
@@ -41,8 +40,7 @@ public class Employee {
 			this.isForeigner = isForeigner;
 			this.gender = gender;
 
-			childNames = new LinkedList<String>();
-			childIdNumbers = new LinkedList<String>();
+			childrens = new LinkedList<Children>();
 		}
 
 	public String getEmployeeId() {
@@ -69,13 +67,16 @@ public class Employee {
 		return isForeigner;
 	}
 
+	public int getTotalChildrens(){
+		return childrens.size();
+	}
+
 	public Gender getGender() {
 		return gender;
 	}
 
 	public void addChild(String childName, String childIdNumber) {
-		childNames.add(childName);
-		childIdNumbers.add(childIdNumber);
+		childrens.add(new Children(childName,childIdNumber));
 	}
 	
 

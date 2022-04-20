@@ -21,4 +21,12 @@ public class Spouse extends  Employee{
         this.spouseName = spouseName;
         this.spouseIdNumber = super.getIdNumber();
     }
+
+    public String getSpouseName() {
+        return spouseName;
+    }
+
+    public String getSpouseIdNumber() {
+        return spouseIdNumber;
+    }
 }
