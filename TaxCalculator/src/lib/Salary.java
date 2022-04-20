@@ -1,11 +1,52 @@
 package lib;
 
-public class Salary extends Employee{
+public class Salary extends  Employee{
     private int monthlySalary;
     private int otherMonthlyIncome;
     private int annualDeductible;
 
-    public Salary(){
-        super();
+    public  Salary(Employee employee)
+    {
+        super(
+                employee.getEmployeeId(),
+                employee.getFirstName(),
+                employee.getLastName(),
+                employee.getIdNumber(),
+                employee.getAddress(),
+                employee.isForeigner(),
+                employee.getGender()
+        );
+    }
+
+    /**
+     * Fungsi untuk menentukan gaji bulanan pegawai berdasarkan grade kepegawaiannya (grade 1: 3.000.000 per bulan, grade 2: 5.000.000 per bulan, grade 3: 7.000.000 per bulan)
+     * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
+     */
+
+    public void setMonthlySalary(int grade) {
+        if (grade == 1) {
+            monthlySalary = 3000000;
+            if (super.isForeigner()) {
+                monthlySalary = (int) (3000000 * 1.5);
+            }
+        }else if (grade == 2) {
+            monthlySalary = 5000000;
+            if (super.isForeigner()) {
+                monthlySalary = (int) (3000000 * 1.5);
+            }
+        }else if (grade == 3) {
+            monthlySalary = 7000000;
+            if (super.isForeigner()) {
+                monthlySalary = (int) (3000000 * 1.5);
+            }
+        }
+    }
+
+    public void setOtherMonthlyIncome(int otherMonthlyIncome) {
+        this.otherMonthlyIncome = otherMonthlyIncome;
+    }
+
+    public void setAnnualDeductible(int annualDeductible) {
+        this.annualDeductible = annualDeductible;
     }
 }
